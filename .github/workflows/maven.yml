@@ -28,7 +28,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: |-
+        mvn -B package --file pom.xml
+        if [[ "$? -ne 0 ]] ; then
+          echo "Maven Build Failed"
+          exit 1
+        else 
+          exit 0
+      
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
