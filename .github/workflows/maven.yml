@@ -32,9 +32,9 @@ jobs:
         mvn -B package --file pom.xml
         if [[ "$?" -ne 0 ]] ; then
           echo "Maven Build Failed"
-          exit 1
-        else 
           exit 0
+        else 
+          exit 1
         fi
       
 
