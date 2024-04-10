@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: |-
         mvn -B package --file pom.xml
-        if [[ "$?" -ne 0 ]] ; then
+        if [[ "$?" -eq 0 ]] ; then
           echo "Maven Build Failed"
           exit 0
         else 
